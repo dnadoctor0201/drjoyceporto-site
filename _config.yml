@@ -28,6 +28,13 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
+# This site ships its own hand-authored CSS (assets/css/*.css) rather
+# than a Jekyll theme. Explicitly disabling the theme stops GitHub
+# Pages' build from silently falling back to its default Primer
+# theme, whose bundled Sass fails to compile under the current
+# Sass/Ruby toolchain.
+theme: null
+
 permalink: pretty
 
 plugins:
