@@ -1,0 +1,53 @@
+<div class="nav-backdrop" data-nav-backdrop></div>
+
+<nav id="primary-navigation" class="primary-nav" data-primary-nav data-open="false" aria-label="Primary">
+  <ul class="primary-nav__list" role="list">
+    {%- for item in site.data.nav.primary -%}
+      <li>
+        {%- if item.dropdown -%}
+          <div class="nav-dropdown" data-dropdown>
+            <button
+              type="button"
+              class="nav-dropdown__toggle"
+              data-dropdown-toggle
+              aria-haspopup="true"
+              aria-expanded="false"
+              id="dropdown-toggle-{{ forloop.index }}"
+            >
+              {{ item.title }}
+              <span aria-hidden="true">▾</span>
+            </button>
+            <ul
+              class="nav-dropdown__menu"
+              data-dropdown-menu
+              role="menu"
+              aria-labelledby="dropdown-toggle-{{ forloop.index }}"
+              hidden
+            >
+              {%- for child in item.children -%}
+                <li role="none">
+                  <a
+                    role="menuitem"
+                    href="{{ child.url | relative_url }}"
+                    {% if page.url == child.url %}aria-current="page"{% endif %}
+                  >{{ child.title }}</a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- else -%}
+          <a
+            class="primary-nav__link"
+            href="{{ item.url | relative_url }}"
+            {% if page.url == item.url %}aria-current="page"{% endif %}
+          >{{ item.title }}</a>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+
+  {%- assign phys = site.data.nav.physician_link -%}
+  <a class="primary-nav__physician-link" href="{{ phys.url | relative_url }}">
+    {{ phys.title }}
+  </a>
+</nav>

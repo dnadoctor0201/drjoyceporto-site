@@ -1,0 +1,23 @@
+{%- comment -%}
+  Reusable patient-facing callout.
+  Usage:
+    {% include cta-patient.html
+       heading="Request an appointment"
+       text="Reach out to schedule a consultation."
+       button_text="Request an appointment"
+       button_url="/contact/" %}
+  All parameters are optional and fall back to sensible defaults below.
+{%- endcomment -%}
+
+{%- assign heading = include.heading | default: "Request an appointment" -%}
+{%- assign text = include.text | default: "Reach out to schedule a consultation with Dr. Porto." -%}
+{%- assign button_text = include.button_text | default: "Request an appointment" -%}
+{%- assign button_url = include.button_url | default: "/contact/" -%}
+
+<div class="callout callout--patient">
+  <div class="callout__text">
+    <strong>{{ heading }}</strong>
+    <p>{{ text }}</p>
+  </div>
+  <a class="btn btn-primary" href="{{ button_url | relative_url }}">{{ button_text }}</a>
+</div>

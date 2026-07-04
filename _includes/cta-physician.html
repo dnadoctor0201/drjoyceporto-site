@@ -1,0 +1,23 @@
+{%- comment -%}
+  Reusable physician-facing callout.
+  Usage:
+    {% include cta-physician.html
+       heading="Refer a patient"
+       text="Share case details to discuss a referral."
+       button_text="Refer a patient"
+       button_url="/for-physicians/" %}
+  All parameters are optional and fall back to sensible defaults below.
+{%- endcomment -%}
+
+{%- assign heading = include.heading | default: "Refer a patient" -%}
+{%- assign text = include.text | default: "Share case details or request a discussion about a referral." -%}
+{%- assign button_text = include.button_text | default: "Refer a patient" -%}
+{%- assign button_url = include.button_url | default: "/for-physicians/" -%}
+
+<div class="callout callout--physician">
+  <div class="callout__text">
+    <strong>{{ heading }}</strong>
+    <p>{{ text }}</p>
+  </div>
+  <a class="btn btn-secondary" href="{{ button_url | relative_url }}">{{ button_text }}</a>
+</div>

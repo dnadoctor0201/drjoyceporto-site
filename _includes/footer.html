@@ -1,0 +1,22 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <p class="credentials-line credentials-line--light">{{ site.author.name }}</p>
+        <p class="prose-narrow" style="margin-top: var(--space-2xs);">{{ site.tagline }}</p>
+      </div>
+
+      <nav aria-label="Footer">
+        <ul class="site-footer__nav">
+          {%- for item in site.data.nav.footer -%}
+            <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+    </div>
+
+    <div class="site-footer__meta">
+      <p>&copy; {{ 'now' | date: "%Y" }} {{ site.author.name }}. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

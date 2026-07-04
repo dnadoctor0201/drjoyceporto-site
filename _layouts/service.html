@@ -1,0 +1,71 @@
+---
+layout: default
+---
+{%- comment -%}
+  Service page layout: patient-facing summary first, physician
+  clinical detail second, visually separated by a background tint
+  change (see .service-section--physician in components.css).
+
+  Authoring convention: write the page content in two parts,
+  separated by an HTML comment on its own line:
+
+    Patient-facing markdown goes here...
+
+    <!--physician-->
+
+    Physician-facing markdown goes here...
+
+  If no <!--physician--> marker is present, the entire body renders
+  in the patient-facing section only — nothing breaks, it just won't
+  have a physician section yet.
+
+  Optional front matter for this layout:
+    patient_cta_text / patient_cta_url
+    physician_cta_text / physician_cta_url
+{%- endcomment -%}
+
+<header class="page-header">
+  <div class="container">
+    {%- if page.eyebrow -%}
+      <p class="page-header__eyebrow">{{ page.eyebrow }}</p>
+    {%- endif -%}
+    <h1>{{ page.title }}</h1>
+    {%- if page.description -%}
+      <p class="page-header__description">{{ page.description }}</p>
+    {%- endif -%}
+  </div>
+</header>
+
+{%- assign parts = content | split: "<!--physician-->" -%}
+{%- assign patient_content = parts[0] -%}
+{%- assign physician_content = parts[1] -%}
+
+<section class="service-section service-section--patient">
+  <div class="container">
+    <p class="service-section__label">For Patients &amp; Families</p>
+    <div class="page-content">
+      {{ patient_content }}
+    </div>
+
+    {%- include cta-patient.html
+        button_text=page.patient_cta_text
+        button_url=page.patient_cta_url
+    -%}
+  </div>
+</section>
+
+{%- if physician_content -%}
+  <section class="service-section service-section--physician">
+    <div class="container">
+      <p class="service-section__label">For Referring Physicians</p>
+      <div class="page-content">
+        {{ physician_content }}
+      </div>
+
+      {%- include cta-physician.html
+          button_text=page.physician_cta_text
+          button_url=page.physician_cta_url
+      -%}
+    </div>
+  </section>
+{%- endif -%}

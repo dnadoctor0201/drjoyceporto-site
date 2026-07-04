@@ -1,0 +1,173 @@
+/* ─────────────────────────────────────────────
+   Components — reused across multiple pages
+   ───────────────────────────────────────────── */
+
+/* ── Buttons ──
+   Primary = navy fill, used for patient-facing actions.
+   Secondary = teal outline, used for physician-facing actions.
+   The color coding is consistent everywhere so each audience
+   learns to recognize "their" call to action. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.btn-primary {
+  background: var(--color-navy);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--color-navy-dark);
+  color: #fff;
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--color-teal);
+  color: var(--color-teal-dark);
+}
+
+.btn-secondary:hover {
+  background: var(--color-teal-tint);
+}
+
+/* ── Card ── */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+/* ── Two-path split (e.g. homepage "who this is for") ── */
+.two-path-split {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+@media (max-width: 640px) {
+  .two-path-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Callout (used inside cta-patient.html / cta-physician.html) ── */
+.callout {
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.callout--patient {
+  background: var(--color-navy-tint);
+  border: 1px solid var(--color-navy);
+}
+
+.callout--physician {
+  background: var(--color-teal-tint);
+  border: 1px solid var(--color-teal);
+}
+
+.callout__text {
+  max-width: 40ch;
+}
+
+.callout__text p {
+  margin-top: var(--space-2xs);
+  color: var(--color-ink-muted);
+}
+
+/* ── Service page split (patient-facing vs. physician-facing) ──
+   A background tint shift makes the split scannable at a glance,
+   not just a heading change. */
+.service-section {
+  padding-block: var(--space-xl);
+}
+
+.service-section--patient {
+  background: var(--color-surface);
+}
+
+.service-section--physician {
+  background: var(--color-navy-tint);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.service-section__label {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-teal-dark);
+}
+
+/* ── Utility classes ──
+   Small, reusable helpers that replace one-off inline `style=""`
+   attributes previously scattered across content pages. */
+.prose {
+  max-width: 62ch;
+}
+
+.prose-narrow {
+  max-width: 32ch;
+}
+
+.list-plain {
+  list-style: none;
+  padding-left: 0;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.button-row--spaced {
+  margin-top: var(--space-lg);
+}
+
+.cta-stack {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.mt-lg {
+  margin-top: var(--space-lg);
+}
+
+.credentials-line--light {
+  color: #C9D3E4;
+}
+
+/* ── Credentials line ──
+   Consistent small-caps / letter-spaced treatment for
+   "MD, PhD, FPNA" wherever it appears. */
+.credentials-line {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+  color: var(--color-ink-muted);
+}

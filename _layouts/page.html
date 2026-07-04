@@ -1,0 +1,28 @@
+---
+layout: default
+---
+{%- comment -%}
+  Standard content page: header with title/eyebrow, then a single
+  column of body content. Used by About, Genetic Testing Explained,
+  Research Overview, Contact, and most future Phase 2 pages.
+{%- endcomment -%}
+
+<header class="page-header">
+  <div class="container">
+    {%- if page.eyebrow -%}
+      <p class="page-header__eyebrow">{{ page.eyebrow }}</p>
+    {%- endif -%}
+    <h1>{{ page.title }}</h1>
+    {%- if page.description -%}
+      <p class="page-header__description">{{ page.description }}</p>
+    {%- endif -%}
+  </div>
+</header>
+
+<div class="trace-divider" role="presentation"></div>
+
+<div class="container">
+  <div class="page-content">
+    {{ content }}
+  </div>
+</div>

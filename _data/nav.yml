@@ -1,0 +1,53 @@
+# ─────────────────────────────────────────────
+# Primary navigation data
+# Edit this file to add/remove/reorder nav items — header.html,
+# nav.html, and footer.html all read from here rather than
+# hardcoding links, so Phase 2 additions are a one-line edit.
+# ─────────────────────────────────────────────
+
+primary:
+  - title: "Home"
+    url: "/"
+
+  - title: "About"
+    url: "/about/"
+
+  - title: "Clinical Services"
+    dropdown: true
+    children:
+      - title: "Neurogenetics Service"
+        url: "/services/neurogenetics/"
+      - title: "General Neurology"
+        url: "/services/neurology/"
+
+  - title: "Research"
+    url: "/research/"
+
+  - title: "Genetic Testing Explained"
+    url: "/patients/genetic-testing/"
+
+  - title: "Contact"
+    url: "/contact/"
+
+# Always visible, never inside the dropdown — physicians arriving
+# from a referral note should reach this in one click.
+physician_link:
+  title: "For Referring Physicians"
+  url: "/for-physicians/"
+
+footer:
+  - title: "About"
+    url: "/about/"
+  - title: "Research"
+    url: "/research/"
+  - title: "Genetic Testing Explained"
+    url: "/patients/genetic-testing/"
+  - title: "Contact"
+    url: "/contact/"
+
+# ─── Reserved for Phase 2 — not yet linked in primary/footer ───
+# /education/                Education & Teaching
+# /research/publications/    Full publications list
+# /patients/conditions/      Condition explainers library
+# /news/                     Blog / News feed
+# /referrals/                Physician referral portal

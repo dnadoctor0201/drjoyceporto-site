@@ -1,0 +1,21 @@
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href="{{ '/' | relative_url }}">
+      <span class="site-header__name">{{ site.short_title }}</span>
+      <span class="site-header__tagline">{{ site.tagline }}</span>
+    </a>
+
+    <button
+      type="button"
+      class="nav-toggle"
+      data-nav-toggle
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+    >
+      <span aria-hidden="true">☰</span>
+      <span>Menu</span>
+    </button>
+
+    {%- include nav.html -%}
+  </div>
+</header>

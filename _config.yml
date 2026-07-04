@@ -1,0 +1,58 @@
+# ─────────────────────────────────────────────
+# Site configuration
+# drjoyceporto.com — Dr. Kristine Joyce L. Porto, MD, PhD, FPNA
+# ─────────────────────────────────────────────
+
+title: "Dr. Kristine Joyce L. Porto, MD, PhD, FPNA"
+short_title: "Dr. Joyce Porto"
+tagline: "Neurologist & Neurogeneticist"
+description: >-
+  Neurology and neurogenetics practice of Dr. Kristine Joyce L. Porto, MD, PhD, FPNA,
+  focused on genetic diagnosis, precision medicine, and building neurogenetics
+  infrastructure in the Philippines.
+
+url: "https://drjoyceporto.com"
+baseurl: ""
+
+author:
+  name: "Kristine Joyce L. Porto, MD, PhD, FPNA"
+  credentials: "MD, PhD, FPNA"
+  email: "joycelinay@gmail.com"
+
+# Used by head.html for default social preview image
+social_image: "/assets/images/og/default-og.jpg"
+
+# ─── Build settings ───
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+permalink: pretty
+
+plugins:
+  - jekyll-sitemap
+
+# ─── Front matter defaults ───
+# Keeps individual pages lean — layout/SEO defaults live here once.
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+      sitemap: true
+
+# ─── Files/folders Jekyll should not process or copy ───
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - CHANGELOG.md
+  - DESIGN_SYSTEM.md
+  - vendor
+  - node_modules
+
+# Phase 1 note: /education/, /research/publications/, /patients/conditions/,
+# /news/, and /referrals/ are intentionally not linked in _data/nav.yml yet.
+# Their folders/routes are reserved for Phase 2 — see README.md.
