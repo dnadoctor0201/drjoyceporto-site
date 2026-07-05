@@ -113,6 +113,7 @@ the patient-facing section — nothing breaks.
 Edit `_data/nav.yml` only. Header, mobile drawer, and footer all read
 from that one file.
 
+
 ## Deployment
 
 Push to the branch GitHub Pages is configured to build from. The
